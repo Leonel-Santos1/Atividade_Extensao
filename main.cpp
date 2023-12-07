@@ -32,6 +32,7 @@ typedef struct vitima
     Pessoa pessoa;
     Endereco enderecoVitima;
     Horarario horaOcorrencia;
+    Data dataOcorrencia;
     Endereco localOcorrencia;
     char relato[200];
     char numeroProcesso[50];
