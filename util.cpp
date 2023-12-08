@@ -27,7 +27,7 @@ vitima *buscar(Lista *lista, char *conteudo) {
     while (aux != NULL) {
         if (strcasecmp(aux->numeroProcesso, conteudo) == 0) {
             return aux;
-        } else if (strcasecmp(aux->pessoa.CPF == conteudo) == 0) {
+        } else if (strcasecmp(aux->pessoa.CPF, conteudo) == 0) {
             return aux;
         }
         aux = aux->prox;
