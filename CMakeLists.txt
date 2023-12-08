@@ -3,4 +3,6 @@ project(AtividadeExtensao)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(AtividadeExtensao main.cpp)
+add_executable(AtividadeExtensao main.cpp
+        util.cpp
+        util.h)
