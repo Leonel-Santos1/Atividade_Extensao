@@ -26,6 +26,7 @@ typedef struct Horarario
 typedef struct Pessoa
 {
     char Nome[N];
+    int Idade;
     char CPF[13];
     char Telefone[15];
 }Pessoa;
@@ -39,6 +40,7 @@ typedef struct vitima
     Data dataOcorrencia;
     char relato[200];
     char numeroProcesso[16];
+    int grauOcorrencia;
     int andamento;
 
     struct vitima *prox;
@@ -54,6 +56,10 @@ typedef struct Lista
 char* gerarNumerosAleatorios();
 vitima *RemoverVitima(Lista *lista, char *numeroProcesso);
 vitima *buscar(Lista *lista, char *conteudo);
+Lista * inserirLista(Lista *ptr_registro,vitima *ptr_elementoNovo);
+void fazerBO(Lista *ptr_registroLeve,Lista *ptr_registroMedio,Lista *ptr_registroGrave);
+void buscarBO(Lista *ptr_registroLeve, Lista *ptr_registroMedio, Lista *ptr_registroGrave);
+void imprimirDetalhesDoCaso(vitima *ptr_aux);
 
 
 #endif //ATIVIDADEEXTENSAO_UTIL_H
