@@ -99,6 +99,8 @@ Lista * inserirLista(Lista *ptr_registro,vitima *ptr_elementoNovo);
 void fazerBO(Lista *ptr_registroLeve,Lista *ptr_registroMedio,Lista *ptr_registroGrave);
 void buscarBO(Lista *ptr_registroLeve, Lista *ptr_registroMedio, Lista *ptr_registroGrave);
 void imprimirDetalhesDoCaso(vitima *ptr_aux);
+void atualizarCaso(Lista *lista, char *conteudo, Lista *listaCasosConcluidos);
+
 void imprimirNacionalPI(piauiRG **head, char CPFdigitado[12]);
 void CadastraInscricao(seguranca **head);
 void BuscarInscricao(seguranca **head);

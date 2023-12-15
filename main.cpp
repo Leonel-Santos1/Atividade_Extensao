@@ -1,49 +1,71 @@
 #include <stdio.h>
-typedef struct Endereco
-{
-    char rua[100];
-    char cidade[100];
-    char estado[100];
-}Endereco;
+#include "util.h"
 
-typedef struct Data
-{
-    int dia;
-    int mes;
-    int ano;
-}Data;
 
-typedef struct Horarario
-{
-    int hora;
-    int min;
-    int seg;
-}Horario;
+void principal() {
+    Lista *leve = NULL;
+    Lista *medio = NULL;
+    Lista *grave = NULL;
+    Lista *casosConcluidos = NULL;
 
-typedef struct Pessoa
-{
-    char Nome[100];
-    char CPF[13];
-    char Telefone[15];
-}Pessoa;
+    int escolhaEntrada;
+    int escolhaUser;
 
-typedef struct vitima
-{
-    Pessoa pessoa;
-    Endereco enderecoVitima;
-    Horarario horaOcorrencia;
-    Endereco localOcorrencia;
-    char relato[200];
-    char numeroProcesso[50];
-    int andamento;
 
-    struct vitima *prox;
-    struct vitima *ant;
-}vitima;
+    printf("----Bem-Vindo(a)----");
 
-typedef struct queue
-{
-    vitima *head;
-    vitima *tail;
-};
+    do {
+        printf("\n1-Área Civil\n2-Área Servidor\n0-Sair\nEscolha:");
+        scanf("%d", &escolhaEntrada);
 
+        switch (escolhaEntrada) {
+
+            case 1:
+                printf("\n1-Registrar B.O\n2-Acompanhar Caso\n3-Buscar CPF\n4-Voltar");
+                scanf("%d", &escolhaUser);
+                fflush(stdin);
+
+                if (escolhaUser == 1) {
+                    fazerBO(leve, medio, grave);
+                } else if (escolhaUser == 2) {
+                    buscarBO(leve, medio, grave);
+                } else {
+                    printf("csdf");
+                }
+                break;
+
+            case 2:
+                printf("\n1-Fazer B.O\n2-Atualizar Casos\n3-Imprimir Detalhes Caso");
+                scanf("%d", &escolhaUser);
+
+                if (escolhaUser == 1) {
+
+                    fazerBO(leve, medio, grave);
+                } else if (escolhaUser == 2) {
+                    char conteudo[12];
+                    int escolhaCaso;
+
+                    printf("\nDigite o número do caso ou CPF.");
+                    scanf("%s", conteudo);
+
+                    printf("Digite o tipo de ocorrência:\n1-Para Embriagez no volante ou Injúria\n2- Para Roubo ou Furto\n3-Para Lesão corporal ou Homicidio\n");
+                    scanf("%d", &escolhaCaso);
+                    if (escolhaCaso == 1) {
+                        atualizarCaso(leve, conteudo, casosConcluidos);
+                    } else if (escolhaCaso == 2) {
+                        atualizarCaso(medio, conteudo, casosConcluidos);
+                    } else {
+                        atualizarCaso(grave, conteudo, casosConcluidos);
+                        break;
+                    }
+                }
+
+        }
+    } while (escolhaEntrada != 0);
+}
+
+int main(void) {
+    principal();
+
+    return 0;
+}
